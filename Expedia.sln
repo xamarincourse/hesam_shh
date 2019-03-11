@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expedia.iOS", "Expedia\Expe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expedia.UWP", "Expedia\Expedia.UWP\Expedia.UWP.csproj", "{B5731AA5-ACFF-4172-95F1-9940172FA39E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expedia", "Expedia\Expedia\Expedia.csproj", "{1AAC50B8-FA0A-486D-BB90-FEAC736A5DBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expedia", "Expedia\Expedia\Expedia.csproj", "{1AAC50B8-FA0A-486D-BB90-FEAC736A5DBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
