@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Expedia;assembly=Expedia"
+             x:Class="Expedia.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="image" TargetType="Image">
+                <Setter Property="Aspect" Value="AspectFill" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="imageLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid ColumnSpacing="5" RowSpacing="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <RelativeLayout Grid.Row="0" Grid.Column="0">
+            <Image Source="{local:ImageResource Expedia.images.hotels.jpg}" Style="{StaticResource image}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+            <Label Text="HOTELS" Style="{StaticResource imageLabel}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5, Constant = 0}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=.5, Constant = 50}" />
+        </RelativeLayout>
+        <RelativeLayout Grid.Row="0" Grid.Column="1">
+            <Image Source="{local:ImageResource Expedia.images.flight.jpg}" Style="{StaticResource image}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToFlight" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="FLIGHTS" Style="{StaticResource imageLabel}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5, Constant = 0}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=.5, Constant = 50}" />
+        </RelativeLayout>
+        <RelativeLayout Grid.Row="1" Grid.Column="0">
+            <Image Source="{local:ImageResource Expedia.images.car.jpg}" Style="{StaticResource image}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+            <Label Text="CARS" Style="{StaticResource imageLabel}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5, Constant = 0}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.5, Constant = 10}"/>
+        </RelativeLayout>
+        <RelativeLayout Grid.Row="1" Grid.Column="1">
+            <Image Source="{local:ImageResource Expedia.images.activites.jpg}" Style="{StaticResource image}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+            <Label Text="ACTIVITES" Style="{StaticResource imageLabel}" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5, Constant = 0}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=.5, Constant = 10}" />
+        </RelativeLayout>
+        <FlexLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#DFE0E2" AlignItems="Center" JustifyContent="SpaceBetween">
+            <Label Text="Popular Hotels Tonight" Margin="15,0,0,0" />
+            <Label Text="See More" TextColor="#00A7E1" Margin="0,0,15,0" />
+        </FlexLayout>
+        <RelativeLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <Image Source="{local:ImageResource Expedia.images.city.jpg}" Style="{StaticResource image}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+        </RelativeLayout>
+        <RelativeLayout Grid.Row="4" Grid.Column="0">
+            <Image Source="{local:ImageResource Expedia.images.skyline.jpg}" Style="{StaticResource image}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+        </RelativeLayout>
+        <RelativeLayout Grid.Row="4" Grid.Column="1">
+            <Image Source="{local:ImageResource Expedia.images.skyline.jpg}" Style="{StaticResource image}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+        </RelativeLayout>
+    </Grid>
+
+</ContentPage>

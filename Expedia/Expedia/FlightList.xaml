@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Expedia"
+             x:Class="Expedia.FlightList">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="label" TargetType="Label">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="FontSize" Value="11" />
+            </Style>
+            <Style x:Key="content" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+            <local:StatusToColorConverter x:Key="statusToColor" />
+            <local:DateTimeConverter x:Key="timeCnv" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ListView x:Name="BoardingView" BackgroundColor="LightGray">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Margin="0,0,0,10" Padding="10" BackgroundColor="White">
+                            <FlexLayout FlexLayout.Basis="100%" Direction="Row" JustifyContent="SpaceBetween" >
+                                <Image Source="{Binding Logo}" />
+                                <Label Text="{Binding Status}" TextColor="{Binding Status, Converter={StaticResource statusToColor}}" />
+                            </FlexLayout>
+                            <FlexLayout FlexLayout.Basis="100%" JustifyContent="SpaceBetween">
+                                <StackLayout FlexLayout.Basis="25%">
+                                    <Label Text="City" Style="{StaticResource label}" />
+                                    <Label Text="{Binding DepartCityName}" Style="{StaticResource content}" WidthRequest="75" />
+                                </StackLayout>
+                                <StackLayout FlexLayout.Basis="25%">
+                                    <Label Text="STA" Style="{StaticResource label}" />
+                                    <Label Text="{Binding STA, Converter={StaticResource timeCnv}}" Style="{StaticResource content}" />
+                                </StackLayout>
+                                <StackLayout FlexLayout.Basis="25%">
+                                    <Label Text="ETA" Style="{StaticResource label}" />
+                                    <Label Text="{Binding ETA, Converter={StaticResource timeCnv}}" Style="{StaticResource content}" />
+                                </StackLayout>
+                                <StackLayout FlexLayout.Basis="25%">
+                                    <Label Text="Terminal" Style="{StaticResource label}" />
+                                    <Label Text="{Binding Terminal}" Style="{StaticResource content}" />
+                                </StackLayout>
+                            </FlexLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

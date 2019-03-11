@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\activites.jpg" />
+    <None Remove="images\car.jpg" />
+    <None Remove="images\city.jpg" />
+    <None Remove="images\EK.png" />
+    <None Remove="images\flight.jpg" />
+    <None Remove="images\hotels.jpg" />
+    <None Remove="images\LH.png" />
+    <None Remove="images\skyline.jpg" />
+    <None Remove="images\W5.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="images\activites.jpg" />
+    <EmbeddedResource Include="images\car.jpg" />
+    <EmbeddedResource Include="images\city.jpg" />
+    <EmbeddedResource Include="images\EK.png" />
+    <EmbeddedResource Include="images\flight.jpg" />
+    <EmbeddedResource Include="images\hotels.jpg" />
+    <EmbeddedResource Include="images\LH.png" />
+    <EmbeddedResource Include="images\skyline.jpg" />
+    <EmbeddedResource Include="images\W5.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="FlightList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Flights.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

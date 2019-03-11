@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Expedia.Flights">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="content" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            <Style x:Key="btn" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            <Style x:Key="grid-header" TargetType="Label">
+                <Setter Property="TextColor" Value="Red" />
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout>
+            <StackLayout BackgroundColor="#D1345B">
+                <Label Text="it's go time." FontSize="Medium" Margin="0,15,0,0" Style="{StaticResource content}"/>
+                <Label Text="Boarding 8:20 PM at Gate B79" Style="{StaticResource content}" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="{Binding Arrival}" FontSize="Large" Style="{StaticResource content}" />
+                    <Label Text="&#x2192;" FontSize="Large" Style="{StaticResource content}" />
+                    <Label Text="{Binding Departure}" FontSize="Large" Style="{StaticResource content}" />
+                </StackLayout>
+                <Button Text="View Boarding PASS" Style="{StaticResource btn}" Clicked="NavigateToFlightList"/>
+                <Picker x:Name="picker" Margin="10" WidthRequest="10">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>All Flights</x:String>
+                            <x:String>Destination</x:String>
+                            <x:String>Departure</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </StackLayout>
+            <StackLayout>
+                <Grid ColumnSpacing="5" RowSpacing="1" Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="TERM" Grid.Row="0" Grid.Column="0" Style="{StaticResource grid-header}" />
+                    <Label Text="{Binding Term}" Grid.Row="1" Grid.Column="0" />
+                    <Label Text="GATE" Grid.Row="0" Grid.Column="1" Style="{StaticResource grid-header}" />
+                    <Label Text="{Binding Gate}" Grid.Row="1" Grid.Column="1" />
+                    <Label Text="SEAT" Grid.Row="0" Grid.Column="2" Style="{StaticResource grid-header}" />
+                    <Label Text="{Binding Seat}" Grid.Row="1" Grid.Column="2" />
+                    <Label Text="DEPART" Grid.Row="0" Grid.Column="3" Style="{StaticResource grid-header}" />
+                    <Label Text="{Binding Depart}" Grid.Row="1" Grid.Column="3" />
+                    <Label Text="&#x2713; ON-TIME" Grid.Row="1" Grid.Column="4" TextColor="Green" />
+                </Grid>
+            </StackLayout>
+            <StackLayout>
+                <ListView  x:Name="listView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout BackgroundColor="#eee" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding image}" />
+                                        <Label Text="{Binding title}" TextColor="#f35e20" />
+                                        <Label Text="{Binding subtitle}" HorizontalOptions="EndAndExpand"
+                                            TextColor="#503026" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
